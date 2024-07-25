@@ -19,6 +19,37 @@ const Invoice = () => {
     fetchInvoices();
   }, []);
 
+  const getRandomText = () => {
+    const randomTexts = ["Random Text 1", "Random Text 2", "Random Text 3"];
+    return randomTexts[Math.floor(Math.random() * randomTexts.length)];
+  };
+
+  const getRandomNumber = () => {
+    return (Math.random() * 100).toFixed(2);
+  };
+
+  // Dummy static data
+  const staticData = [
+    {
+      description: "Varasiddhi Silks Men's Formal Shirt",
+      unit_price: 38.10,
+      qty: 1,
+      net_amount: 38.10,
+      tax_rate: 2.5,
+      tax_amount: 1.00,
+      total_amount: 39.10
+    },
+    {
+      description: "Varasiddhi Silks Men's Formal Shirt",
+      unit_price: 30.96,
+      qty: 2,
+      net_amount: 61.92,
+      tax_rate: 2.5,
+      tax_amount: 1.55,
+      total_amount: 63.47
+    }
+  ];
+
   return (
     <div className="invoice-container">
       <header className="invoice-header">
@@ -65,18 +96,26 @@ const Invoice = () => {
             </tr>
           </thead>
           <tbody>
-            {invoices.map((invoice, index) => (
-              <tr key={index}>
-                <td>{index + 1}</td>
-                <td>{invoice.description}</td>
-                <td>{invoice.unit_price}</td>
-                <td>{invoice.qty}</td>
-                <td>{invoice.net_amount}</td>
-                <td>{invoice.tax_rate}%</td>
-                <td>{invoice.tax_amount}</td>
-                <td>{invoice.total_amount}</td>
-              </tr>
-            ))}
+            <tr>
+              <td>1</td>
+              <td>{staticData[0].description || getRandomText()}</td>
+              <td>{staticData[0].unit_price || getRandomNumber()}</td>
+              <td>{staticData[0].qty || getRandomNumber()}</td>
+              <td>{staticData[0].net_amount || getRandomNumber()}</td>
+              <td>{staticData[0].tax_rate ? `${staticData[0].tax_rate}%` : `${getRandomNumber()}%`}</td>
+              <td>{staticData[0].tax_amount || getRandomNumber()}</td>
+              <td>{staticData[0].total_amount || getRandomNumber()}</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>{staticData[1].description || getRandomText()}</td>
+              <td>{staticData[1].unit_price || getRandomNumber()}</td>
+              <td>{staticData[1].qty || getRandomNumber()}</td>
+              <td>{staticData[1].net_amount || getRandomNumber()}</td>
+              <td>{staticData[1].tax_rate ? `${staticData[1].tax_rate}%` : `${getRandomNumber()}%`}</td>
+              <td>{staticData[1].tax_amount || getRandomNumber()}</td>
+              <td>{staticData[1].total_amount || getRandomNumber()}</td>
+            </tr>
           </tbody>
         </table>
       </section>
