@@ -22,7 +22,7 @@ const Invoice = () => {
   return (
     <div className="invoice-container">
       <header className="invoice-header">
-        <img src="path-to-amazon-logo.png" alt="Amazon Logo" />
+        <img src="https://logos-world.net/wp-content/uploads/2020/04/Amazon-Logo.png" alt="Amazon Logo" />
         <h1>Tax Invoice/Bill of Supply/Cash Memo</h1>
         <h2>(Original for Recipient)</h2>
       </header>
